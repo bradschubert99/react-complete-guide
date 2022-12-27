@@ -4,20 +4,19 @@ import './ExpenseForm.css'
 function ExpenseForm(props){
     const [title, setTitle] = useState('');
     const [amount, setAmount] = useState('');
-     
     const [date, setDate] = useState('');
 
     function titleChangeHandle(event){
         setTitle(event.target.value);
-    }
+    };
 
     function amountChangeHandle(event){
         setAmount(event.target.value);
-    }
+    };
 
     function dateChangeHandle(event){
         setDate(event.target.value);
-    }
+    };
 
     function submitHandler(event){
         event.preventDefault();
@@ -28,12 +27,13 @@ function ExpenseForm(props){
             date: new Date(date)
         };
 
+        console.log("ExpenseForm: " + JSON.stringify(expenseData));
         props.onSaveExpenseData(expenseData);
 
         setTitle('');
         setAmount('');
         setDate('');
-    }
+    };
 
     return (
         <form onSubmit={submitHandler}>
